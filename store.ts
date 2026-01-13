@@ -1,6 +1,6 @@
 
 import { create } from 'zustand';
-import { ResumeData, AppSettings, Experience, Education, Project } from './types';
+import { ResumeData, AppSettings, Experience, Education, Project } from './types.ts';
 
 interface ResumeState {
   data: ResumeData;
@@ -28,6 +28,7 @@ const initialData: ResumeData = {
     location: 'San Francisco, CA',
     website: 'jdoe.dev',
     linkedin: 'linkedin.com/in/jdoe',
+    github: 'github.com/jdoe',
     jobTitle: 'Senior Software Engineer',
     summary: 'Innovative software engineer with 8+ years of experience in building scalable web applications. Expert in React, TypeScript, and cloud architecture.',
   },

@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import IntroAnimation from './components/IntroAnimation';
-import Editor from './components/Layout/Editor';
-import Preview from './components/Layout/Preview';
+import IntroAnimation from './components/IntroAnimation.tsx';
+import Editor from './components/Layout/Editor.tsx';
+import Preview from './components/Layout/Preview.tsx';
 import { Download, Share2, Palette, FileText, Layout } from 'lucide-react';
 
 const App: React.FC = () => {

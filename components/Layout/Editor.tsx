@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
-import { useResumeStore } from '../../store';
+import { useResumeStore } from '../../store.ts';
 import { 
   User, Briefcase, GraduationCap, Code, 
   Settings, FolderKanban, Award, Plus, Trash2, 
-  ChevronDown, ChevronUp, GripVertical 
+  ChevronDown, ChevronUp, GripVertical, Globe, Linkedin, Github
 } from 'lucide-react';
 
 const SectionHeader: React.FC<{ 
@@ -36,13 +36,6 @@ const Editor: React.FC = () => {
   const handleSkillAdd = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && e.currentTarget.value) {
       setSkills([...data.skills, e.currentTarget.value]);
-      e.currentTarget.value = '';
-    }
-  };
-
-  const handleCertAdd = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && e.currentTarget.value) {
-      setCertifications([...data.certifications, e.currentTarget.value]);
       e.currentTarget.value = '';
     }
   };
@@ -122,6 +115,36 @@ const Editor: React.FC = () => {
                   type="text" 
                   value={data.personalInfo.phone} 
                   onChange={(e) => updatePersonalInfo({ phone: e.target.value })}
+                  className="w-full p-2 text-sm border border-slate-200 rounded focus:border-blue-500 outline-none" 
+                />
+              </div>
+              <div className="col-span-2">
+                <label className="text-xs font-bold text-slate-400 uppercase mb-1 block">Website</label>
+                <input 
+                  type="text" 
+                  value={data.personalInfo.website} 
+                  onChange={(e) => updatePersonalInfo({ website: e.target.value })}
+                  placeholder="portfolio.com"
+                  className="w-full p-2 text-sm border border-slate-200 rounded focus:border-blue-500 outline-none" 
+                />
+              </div>
+              <div>
+                <label className="text-xs font-bold text-slate-400 uppercase mb-1 block">LinkedIn</label>
+                <input 
+                  type="text" 
+                  value={data.personalInfo.linkedin} 
+                  onChange={(e) => updatePersonalInfo({ linkedin: e.target.value })}
+                  placeholder="linkedin.com/in/username"
+                  className="w-full p-2 text-sm border border-slate-200 rounded focus:border-blue-500 outline-none" 
+                />
+              </div>
+              <div>
+                <label className="text-xs font-bold text-slate-400 uppercase mb-1 block">GitHub</label>
+                <input 
+                  type="text" 
+                  value={data.personalInfo.github} 
+                  onChange={(e) => updatePersonalInfo({ github: e.target.value })}
+                  placeholder="github.com/username"
                   className="w-full p-2 text-sm border border-slate-200 rounded focus:border-blue-500 outline-none" 
                 />
               </div>

@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { useResumeStore } from '../../store';
-import { Mail, Phone, MapPin, Globe, Linkedin } from 'lucide-react';
+import { useResumeStore } from '../../store.ts';
+import { Mail, Phone, MapPin, Globe, Linkedin, Github } from 'lucide-react';
 
 const Preview: React.FC = () => {
   const { data, settings } = useResumeStore();
@@ -36,6 +36,18 @@ const Preview: React.FC = () => {
             <div className="flex items-center gap-3 text-xs opacity-90">
               <Globe className="w-3 h-3 text-blue-400" />
               <span>{data.personalInfo.website}</span>
+            </div>
+          )}
+          {data.personalInfo.linkedin && (
+            <div className="flex items-center gap-3 text-xs opacity-90">
+              <Linkedin className="w-3 h-3 text-blue-400" />
+              <span>{data.personalInfo.linkedin}</span>
+            </div>
+          )}
+          {data.personalInfo.github && (
+            <div className="flex items-center gap-3 text-xs opacity-90">
+              <Github className="w-3 h-3 text-blue-400" />
+              <span>{data.personalInfo.github}</span>
             </div>
           )}
         </div>
@@ -104,12 +116,24 @@ const Preview: React.FC = () => {
     <div className="p-12 bg-white text-slate-900">
       <header className="text-center mb-12">
         <h1 className="text-4xl font-light tracking-tight mb-2">{data.personalInfo.fullName}</h1>
-        <div className="flex justify-center items-center gap-4 text-xs text-slate-500">
+        <div className="flex justify-center items-center flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500">
           <span>{data.personalInfo.email}</span>
           <span>•</span>
           <span>{data.personalInfo.phone}</span>
           <span>•</span>
           <span>{data.personalInfo.location}</span>
+          {data.personalInfo.linkedin && (
+            <>
+              <span>•</span>
+              <span>{data.personalInfo.linkedin}</span>
+            </>
+          )}
+          {data.personalInfo.github && (
+            <>
+              <span>•</span>
+              <span>{data.personalInfo.github}</span>
+            </>
+          )}
         </div>
       </header>
 
@@ -183,7 +207,9 @@ const Preview: React.FC = () => {
           {data.personalInfo.location} | {data.personalInfo.phone} | {data.personalInfo.email}
         </div>
         <div className="text-sm text-blue-800">
-          {data.personalInfo.website} | {data.personalInfo.linkedin}
+          {data.personalInfo.website} 
+          {data.personalInfo.linkedin && ` | ${data.personalInfo.linkedin}`}
+          {data.personalInfo.github && ` | ${data.personalInfo.github}`}
         </div>
       </div>
 

@@ -34,6 +34,7 @@ export interface ResumeData {
     location: string;
     website: string;
     linkedin: string;
+    github: string;
     jobTitle: string;
     summary: string;
   };
